@@ -10,11 +10,11 @@ The purpose of this script is to quickly and easily allow the user to update all
 Script Installation
 ----------------------
 
-# Ensure your wp-config.php file has the correct database connection settings.
-# Upload the wp-migrate.php file into the root directory of your WordPress installation.
-# Point your web browser to the script (like http://mywebsitedomain.com/wp-migrate.php)
-# If your wp-config.php file is setup correctly, the script will determine the current "old" website URL.
-# Set the "New URL" field to the absolute URL you'd like the database updated to.
+1. Ensure your wp-config.php file has the correct database connection settings.
+2. Upload the wp-migrate.php file into the root directory of your WordPress installation.
+3. Point your web browser to the script (like http://mywebsitedomain.com/wp-migrate.php)
+4. If your wp-config.php file is setup correctly, the script will determine the current "old" website URL.
+5. Set the "New URL" field to the absolute URL you'd like the database updated to.
 
 Additional Notes
 -----------------------
