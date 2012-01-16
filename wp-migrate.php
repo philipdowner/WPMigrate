@@ -123,6 +123,11 @@ require_once('wp-load.php');
 		<div id="container">
 			<h1>Migrate WordPress Site</h1>
 			<div id="content">
+				<?php
+				global $wpdb;
+				
+				if ( !$_POST['submit_update_url'] ) { //FORM HAS NOT BEEN SUBMITTED
+				?>
 				<p class="message warning">This script will update all references in the DB to a new URL. Before proceeding, you should <a href="http://codex.wordpress.org/Backing_Up_Your_Database" target="_blank">make a complete backup of your database</a>.</p>
 				<ul>
 					<li>The current WP URL is: <strong><?php echo get_bloginfo('url'); ?></strong></li>
@@ -131,11 +136,6 @@ require_once('wp-load.php');
 				</ul>
 				
 				<form action="#" method="post">
-					<?php
-					global $wpdb;
-					
-					if ( !$_POST['submit_update_url'] ) { //FORM HAS NOT BEEN SUBMITTED
-					?>
 					<label for="old_url">Current URL</label>
 					<input type="text" name="old_url" value="<?php echo get_bloginfo('url'); ?>" class="text" />
 					
