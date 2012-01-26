@@ -189,6 +189,15 @@ require_once('wp-load.php');
 								$error = true;
 							}
 							
+							$meta_query = "UPDATE $wpdb->postmeta SET meta_value = replace(meta_value, '$old_url', '$new_url')";
+							if ( $wpdb->query($meta_query) ) {
+								echo '<li class="message success">All custom fields updated successfully.</li>';
+							} else {
+								echo '<li class="message error">Problem updating custom fields. ';
+								echo $wpdb->print_error().'</li>';
+								$error = true;
+							}
+							
 							if (!$error) {
 								echo '<p class="message success">All done. <a href="'.$new_url.'">Go to home page</a> | <a href="'.$new_url.'/wp-migrate.php">Do another migration</a></p>';
 								echo '<p class="message warning">You should delete the \'wp-migrate.php\' file from your root directory. Failing to do so is a major security risk and could cause your site to be hacked.</p>';
