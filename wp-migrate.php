@@ -190,8 +190,9 @@ require_once('wp-load.php');
 							}
 							
 							$meta_query = "UPDATE $wpdb->postmeta SET meta_value = replace(meta_value, '$old_url', '$new_url')";
-							if ( $wpdb->query($meta_query) ) {
-								echo '<li class="message success">All custom fields updated successfully.</li>';
+							$meta_query = $wpdb->query($meta_query);
+							if (  $meta_query !== false ) {
+								echo '<li class="message success">All custom fields updated successfully. '.$meta_query.' fields were updated.</li>';
 							} else {
 								echo '<li class="message error">Problem updating custom fields. ';
 								echo $wpdb->print_error().'</li>';
